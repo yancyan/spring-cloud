@@ -1,0 +1,19 @@
+// ============= common.
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+dependencyManagement {
+//    implementation platform('org.springframework.boot:spring-boot-dependencies:1.5.8.RELEASE')
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+dependencies {
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+
+}

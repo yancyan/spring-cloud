@@ -1,0 +1,66 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+//    id 'java'
+}
+apply from: "$rootDir/ext.gradle"
+
+def service_subject = []
+def api_subject = []
+def client_subject = []
+
+subprojects.each {
+    if (it.subprojects.empty && it.name.endsWith('-service')) {
+        service_subject << it
+    }
+    if (it.subprojects.empty && it.name.endsWith('-api')) {
+        api_subject << it
+    }
+    if (it.subprojects.empty && it.name.endsWith('client')) {
+        client_subject << it
+    }
+}
+
+configure(allprojects.findAll { it.subprojects.empty }) {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply from: "$rootDir/gradle/dependencies-common.gradle"
+    apply from: "$rootDir/gradle/integrate-depens.gradle"
+
+    sourceCompatibility = '11'
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    javadoc {
+        options.charSet = 'utf8'
+        options.encoding = 'utf8'
+        options.docEncoding = 'utf8'
+        options.memberLevel = JavadocMemberLevel.PRIVATE
+    }
+
+    repositories {
+        repositories deps.gradleConfig.repositories
+    }
+
+}
+
+configure(service_subject) {
+    apply from: "$rootDir/gradle/dependencies-service.gradle"
+
+}
+
+configure(client_subject) {
+
+//    dependencies {
+//        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//    }
+//
+//    test {
+//        useJUnitPlatform()
+//    }
+}

@@ -1,0 +1,12 @@
+rootProject.name = 'spring-cloud-demo'
+
+include 'service:demo-01:demo-01-api'
+include 'service:demo-01:demo-01-service'
+
+include 'service:demo-02:demo-02-api'
+include 'service:demo-02:demo-02-service'
+include 'client'
+
+include 'platform:platform-config'
+
+

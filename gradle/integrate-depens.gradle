@@ -1,0 +1,39 @@
+def versions = [
+        kotlin          : "1.5.10",
+        support         : "1.2.0",
+        lifecycleVersion: '2.2.0',
+        roomVersion     : '2.3.0',
+]
+
+def builds = [
+        buildToolsVersion: "30.0.2",
+        minSdkVersion    : 21,
+        compileSdkVersion: 30,
+        targetSdkVersion : 30,
+]
+
+
+def google = [
+//        androidPlugin     : "com.android.tools.build:gradle:4.2.1",
+//        androidxCore      : "androidx.core:core:${versions.support}",
+//        appcompat         : "androidx.appcompat:appcompat:${versions.support}",
+]
+
+def repositories() {
+    return {
+        maven { url "https://maven.aliyun.com/repository/public" }
+    }
+}
+
+
+def gradleConfig = [
+        repositories: repositories(),
+]
+
+def libs = google + test
+
+ext.deps = [
+        builds      : builds,
+        libs        : libs,
+        gradleConfig: gradleConfig,
+]

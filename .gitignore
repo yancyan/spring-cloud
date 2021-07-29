@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# 注掉环境配置的敏感信息
+platform/platform-config

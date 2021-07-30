@@ -8,6 +8,7 @@ apply from: "$rootDir/ext.gradle"
 def service_subject = []
 def api_subject = []
 def client_subject = []
+def platform_subject = []
 
 subprojects.each {
     if (it.subprojects.empty && it.name.endsWith('-service')) {
@@ -18,6 +19,9 @@ subprojects.each {
     }
     if (it.subprojects.empty && it.name.endsWith('client')) {
         client_subject << it
+    }
+    if (it.subprojects.empty && it.name.startsWith('platform-')) {
+        platform_subject << it
     }
 }
 
@@ -30,11 +34,11 @@ configure(allprojects.findAll { it.subprojects.empty }) {
     apply from: "$rootDir/gradle/integrate-depens.gradle"
 
     sourceCompatibility = '11'
-    configurations {
-        compileOnly {
-            extendsFrom annotationProcessor
-        }
-    }
+
+
+//    compileOnly {
+//        extendsFrom annotationProcessor
+//    }
 
     javadoc {
         options.charSet = 'utf8'
@@ -43,14 +47,22 @@ configure(allprojects.findAll { it.subprojects.empty }) {
         options.memberLevel = JavadocMemberLevel.PRIVATE
     }
 
-    repositories {
-        repositories deps.gradleConfig.repositories
-    }
+
+    repositories deps.gradleConfig.repositories
+
 
 }
 
-configure(service_subject) {
+configure(service_subject + api_subject) {
     apply from: "$rootDir/gradle/dependencies-service.gradle"
+
+}
+
+configure (api_subject + platform_subject) {
+
+    bootJar {
+        enabled(false)
+    }
 
 }
 

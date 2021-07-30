@@ -1,0 +1,6 @@
+spring:
+  config:
+    import: classpath:common-config.properties, classpath:server-registeries.properties
+
+  lifecycle:
+    timeout-per-shutdown-phase: 60s

@@ -1,3 +1,6 @@
 dependencies {
 
+    implementation project(':platform:platform-config')
+    implementation project(':service:demo-01:demo-01-api')
+    implementation project(':service:demo-02:demo-02-api')
 }

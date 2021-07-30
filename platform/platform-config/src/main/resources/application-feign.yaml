@@ -1,0 +1,24 @@
+feign:
+  client:
+    config:
+      jax-rs:
+#        Millis
+        connectTimeout: 3600
+        readTimeout: 3600
+        errorDecoder:
+        metrics:
+          enabled: true
+        followRedirects: true
+        contract: feign.jaxrs2.JAXRS2Contract
+#
+#spring:
+#  cloud:
+#    discovery:
+#      client:
+#        simple:
+spring:
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: false
+#          order:

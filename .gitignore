@@ -37,4 +37,4 @@ out/
 .vscode/
 
 # 注掉环境配置的敏感信息
-platform/platform-config
+platform/platform-config/src/main/resources/application-dev-f*.yaml

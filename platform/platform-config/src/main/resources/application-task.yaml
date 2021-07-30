@@ -1,0 +1,7 @@
+spring:
+  task:
+    execution:
+      pool:
+        allow-core-thread-timeout: true
+        core-size: 12
+        max-size: 12

@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    include: feign,task,actuator,common
+  application:
+    name: demo-02-service
+
+server:
+  shutdown: graceful
+  port: 8082
+  servlet:
+    context-path: "/"

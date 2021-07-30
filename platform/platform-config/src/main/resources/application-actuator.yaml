@@ -1,0 +1,21 @@
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: health,beans,info,prometheus,startup,quartz,scheduledtasks,refresh
+  endpoint:
+    health:
+      show-details: always
+    startup:
+      enabled: true
+
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+spring:
+  cloud:
+    refresh:
+      enabled: true
+      never-refreshable: false

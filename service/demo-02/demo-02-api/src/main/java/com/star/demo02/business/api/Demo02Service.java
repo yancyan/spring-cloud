@@ -1,5 +1,6 @@
 package com.star.demo02.business.api;
 
+import com.star.demo01.dto.TestDemoDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 
 import javax.ws.rs.*;
@@ -25,4 +26,8 @@ public interface Demo02Service {
     @Path("test")
     String test(@QueryParam("name") String name);
 
+
+    @GET
+    @Path("test/dto")
+    TestDemoDTO testDto(@QueryParam("name") String name);
 }

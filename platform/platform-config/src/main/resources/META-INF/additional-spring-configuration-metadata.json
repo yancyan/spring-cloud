@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "star.common.message-type",
+      "type": "java.lang.String",
+      "description": "Description for star.common.message-type."
+    }
+  ]
+}

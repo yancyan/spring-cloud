@@ -1,8 +1,8 @@
 spring:
   profiles:
-    include: feign,task,actuator,common
+    include: feign,task,actuator,common,message
   config:
-    import: classpath:system-config.properties
+    import: classpath:system-config.properties, classpath:application-message.yaml
   application:
     name: demo-01-service
 

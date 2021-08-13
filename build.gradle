@@ -67,7 +67,7 @@ configure (api_subject + platform_subject) {
 }
 
 configure(client_subject) {
-
+    apply from: "$rootDir/gradle/dependencies-common.gradle"
 //    dependencies {
 //        testImplementation 'org.springframework.boot:spring-boot-starter-test'
 //    }

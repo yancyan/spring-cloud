@@ -1,0 +1,32 @@
+#spring:
+#  cloud:
+#    stream:
+#      binders:
+#        rabbit:
+#          type: rabbit
+#          environment:
+#            spring:
+#              rabbitmq:
+#                host: ${spring.rabbitmq.host}
+#                port: ${spring.rabbitmq.port}
+#                username: ${spring.rabbitmq.username}
+#                password: ${spring.rabbitmq.password}
+#                virtual-host: ${spring.rabbitmq.virtual-host}
+#                ssl:
+#                  enabled: ${spring.rabbitmq.ssl.enabled}
+
+#spring:
+#  cloud:
+#    stream:
+#      integration:
+##        Message header names that will NOT be copied from the inbound message.
+#        message-handler-not-propagated-headers: ["timestamp"]
+#      poller:
+##        Maximum messages per poll for the default poller.
+#        max-messages-per-poll: 10
+#        initial-delay: 60
+#        fixed-delay: 100
+#        time-unit: seconds
+#      source:
+#      pollable-source: none
+

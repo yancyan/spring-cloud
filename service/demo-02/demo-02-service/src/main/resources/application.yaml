@@ -1,6 +1,6 @@
 spring:
   profiles:
-    include: feign,task,actuator,common
+    include: feign,task,actuator,message,common
   application:
     name: demo-02-service
 

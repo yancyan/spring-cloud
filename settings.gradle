@@ -8,5 +8,6 @@ include 'service:demo-02:demo-02-service'
 include 'client'
 
 include 'platform:platform-config'
+include 'platform:platform-message'
 
 
